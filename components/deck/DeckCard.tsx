@@ -1,12 +1,20 @@
-import { Box, Card, Text, VStack } from "@gluestack-ui/themed";
+import { Box, Card, Center, Text, VStack } from "@gluestack-ui/themed";
 import WavyHeader from "./WavyHeader";
 import { Dimensions, StyleSheet } from "react-native";
+import { Feather } from "@expo/vector-icons";
 
-export default function DeckCard({ title }: any) {
+export default function DeckCard({ title, locked }: any) {
   return (
     <VStack maxWidth={"30%"} minWidth={"30%"}>
-      <Box>
-        <Card borderRadius={"$full"}>
+      <Box style={{ position: "relative" }}>
+        <Center
+          style={{ position: "absolute", zIndex: 2 }}
+          w={"100%"}
+          h={"100%"}
+        >
+          {locked ? <Feather name="lock" size={24} color="white" /> : ""}
+        </Center>
+        <Card borderRadius={"$full"} bg={locked ? "#888" : "#fff"}>
           {/* <WavyHeader
           customStyles={styles.svgCurve}
           // customHeight={10}
@@ -19,16 +27,22 @@ export default function DeckCard({ title }: any) {
       </Box>
       <Box
         borderWidth={1}
-        borderColor="white"
+        borderColor={locked ? "#fffa" : "white"}
         borderRadius={50}
-        bg="brown"
-        py={1}
-        px={10}
         mt={10}
+        bg="brown"
       >
-        <Text color="white" textAlign="center">
-          PLAY
-        </Text>
+        <Box
+          bg={locked ? "#0008" : "transparent"}
+          w={"100%"}
+          py={1}
+          px={10}
+          borderRadius={50}
+        >
+          <Text color={locked ? "#fffa" : "white"} textAlign="center">
+            PLAY
+          </Text>
+        </Box>
       </Box>
     </VStack>
   );

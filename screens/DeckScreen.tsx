@@ -34,7 +34,7 @@ export default function DeckScreen({ navigation }: any) {
         <HStack justifyContent="space-between" alignContent="center">
           <DeckCard title={"PARTY AND FUN"} />
           <DeckCard title={"FOOD"} />
-          <DeckCard title={"RELATIONSHIPS"} />
+          <DeckCard title={"RELATIONSHIPS"} locked />
         </HStack>
         <Box>
           <Card backgroundColor="#fff" p={0}>
@@ -51,7 +51,15 @@ export default function DeckScreen({ navigation }: any) {
                   <Text>EXPLORE</Text>
                   <Text>PRIMIUM DECKS</Text>
                 </Box>
-                <Box flexDirection="row">
+                <Box
+                  flexDirection="row"
+                  mt={5}
+                  p={1}
+                  px={3}
+                  borderWidth={1}
+                  borderRadius={20}
+                  borderEndWidth={2}
+                >
                   <Text size="xs">STARTING FROM</Text>
                   <Text size="xs">&#x20b9; 120.00</Text>
                 </Box>
